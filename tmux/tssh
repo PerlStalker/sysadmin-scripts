@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# bind-key M-s command-prompt -p "cluster" "new-window -n %1 '/path/to/tssh %1'"
+
+HOSTS=
+
+if [ $1 = 'cluster1' ]; then
+    HOSTS="host1 host2 host3"
+elif [ $1 = 'vms' ]; then
+    HOSTS="vm1 vms2 vm3 vm4 vm5 vm6"
+else
+    exit
+fi
+
+for host in $HOSTS
+do
+    tmux splitw "ssh $host"
+    tmux select-layout tiled
+done
+tmux set-window-option synchronize-panes on
