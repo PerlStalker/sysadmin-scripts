@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# See http://perlstalker.vuser.org/blog/2013/09/24/cluster-ssh-with-tmux/
 # bind-key M-s command-prompt -p "cluster" "new-window -n %1 '/path/to/tssh %1'"
 
 HOSTS=
